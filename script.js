@@ -23,21 +23,30 @@ searchForm.addEventListener('submit', (e) => {
     }
 });
 
-// --- Functions ---
+
 async function getWeather(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    // This is the new URL for your serverless function
+    // It passes the city as a query parameter
+    const apiUrl = `/.netlify/functions/get-weather?city=${city}`;
 
     try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-            throw new Error('City not found'); // Throws an error for bad responses (e.g., 404)
+            throw new Error('City not found');
         }
         const data = await response.json();
+        
+        // This part is important: OpenWeatherMap might pass its own errors through
+        if (data.cod && data.cod !== 200) {
+            throw new Error(data.message || 'City not found');
+        }
+
         displayWeather(data);
     } catch (error) {
         displayError(error.message);
     }
 }
+
 
 function displayWeather(data) {
     // Hide error message and show weather data
