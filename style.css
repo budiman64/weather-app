@@ -1,0 +1,95 @@
+/* Basic Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* Main App Container */
+.weather-app {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Search Form */
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-form input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0.8rem 1rem;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.search-form button {
+    border: none;
+    outline: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    background: #9b59b6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-form button:hover {
+    background: #71b7e6;
+}
+
+/* Weather Display - Initially Hidden */
+.weather-display {
+    display: none; /* Hidden by default, shown by JS */
+}
+
+.weather-display h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.weather-display .temperature {
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.weather-display .description {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: #555;
+}
+
+/* Error Message - Initially Hidden */
+.error-message {
+    display: none; /* Hidden by default, shown by JS */
+    color: #d32f2f;
+    margin-top: 1rem;
+    font-weight: 500;
+}
