@@ -28,6 +28,10 @@ body {
     text-align: center;
 }
 
+.weather-app h2 {
+    padding: 2rem;
+}
+
 /* Search Form */
 .search-form {
     display: flex;
